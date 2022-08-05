@@ -1,0 +1,260 @@
+body {
+    background-color: white;
+    margin: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  
+  body,
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--small-space);
+  }
+  
+  main,
+  section {
+    margin: var(--medium-space);
+    text-align: center;
+  }
+  
+  main {
+    max-width: 35em;
+  }
+  
+  #game-screen {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  @media screen and (max-width: 1100px) {
+    #game-screen {
+      flex-direction: column;
+    }
+  }
+  
+  #available-ships,
+  #player-tips {
+    width: 200px;
+    max-height: 500px;
+    padding: var(--small-space);
+    text-align: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tip-box-title {
+    font-size: 22px;
+    text-transform: uppercase;
+    color: blue;
+  }
+  
+  .player-tip,
+  #firing-info {
+    margin-top: var(--small-space);
+    font-family: var(--regular);
+    text-transform: none;
+    color: gray;
+  }
+  
+  #game-over {
+    font-size: 30px;
+  }
+  
+  h2 {
+    color: blue;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  button {
+    width: 170px;
+    height: 50px;
+    border-radius: 3px;
+    font-size: 16px;
+    margin: var(--small-space);
+    border: none;
+    background-color: red;
+    color: white;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  button:active {
+    position: relative;
+    top: 1px;
+  }
+  
+  .board {
+    width: 500px;
+    height: 500px;
+    border: 2px solid black;
+    margin: 1em 2em 2em 1em;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .board div {
+    width: 10%;
+    height: 10%;
+    box-sizing: border-box;
+    background: gray;
+    border: 1px solid black;
+    transition: background-color 100ms ease-in-out;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes shake {
+    from {
+      transform: translate(30%, 17%);
+    }
+  
+    to {
+      transform: translate(-30%, -17%);
+    }
+  }
+  
+  .board .empty {
+    background-color: gray;
+  }
+  .board .empty:hover {
+    background-color: white;
+  }
+  
+  .board .ship {
+    background-color: indigo;
+    border: 1px solid black
+  }
+  
+  .board .ship:hover {
+    background-color: black;
+  }
+  
+  .board .hit {
+    background-color: red;
+    border: 1px solid black;
+  }
+  
+  .board .miss {
+    background-color: yellow;
+    border: 1px solid black;
+  }
+  
+  .board .ship-sunk {
+    background-color: green;
+    border: 1px solid black;
+    animation: shake 50ms 6 alternate backwards;
+  }
+  
+  
+  .board .forbidden {
+    background-color: red;
+    border: 1px solid black;
+  }
+  
+  :root {
+    --micro-space: 0.3em;
+    --small-space: 1em;
+    --medium-space: 2em;
+  }
+  
+  
+  #replica-fleet {
+    padding: var(--small-space);
+  }
+  
+  #replica-fleet > * + * {
+    margin-top: var(--small-space);
+  }
+  
+  .replica,
+  .replica-squares {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .replica {
+    width: 200px;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: blue;
+    border-radius: 3px;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px hsla(0, 0%, 0.2);
+  }
+  
+  .replica:hover {
+    background-color: gray;
+    opacity: 0.9;
+  }
+  
+  .replica:active {
+    position: relative;
+    top: 1px;
+  }
+  
+  .placing {
+    background-color: indigo;
+  }
+  
+  .placing:hover {
+    background-color: indigo;
+  }
+  
+  .replica-title {
+    font-size: 14px;
+    text-transform: capitalize;
+    font-family: 'Libre Franklin', sans-serif;
+    color: white;
+  }
+  
+  .small-square {
+    width: 10px;
+    height: 10px;
+    border: 1px solid yellow;
+    background-color: yellow;
+  }
+  
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    margin: 5px;
+  }
+    
+  @media screen and (max-width: 768px) {
+    #replica-ships {
+      max-width: 400px;
+      height: 250px;
+    }
+  }
+  
+  .player-title {
+    color: blue;
+    text-align: center;
+  }
+  
